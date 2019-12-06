@@ -48,7 +48,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 91cab2792b3909f468043c3ad0bdf606, type: 3}
+  - {fileID: 2100000, guid: 16e826e18c2246b49899054b9c4828d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -729,6 +729,7 @@ GameObject:
   - component: {fileID: 196725005284137448}
   - component: {fileID: 3504872861140175066}
   - component: {fileID: 8793020189166352759}
+  - component: {fileID: 7142295502102986482}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -801,6 +802,15 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2981490161850662677}
   m_Enabled: 1
+--- !u!45 &7142295502102986482
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981490161850662677}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: e00a8231e31ffd446a93e5e91d8a8c7d, type: 2}
 --- !u!1 &3035588345345381350
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class LevelBuider : MonoBehaviour
     private bool m_NextPartSpawn = true;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         m_Player = Instantiate(m_PlayerPrefab.transform, m_LevelPart.LevelTransform.transform.position, Quaternion.identity);
         m_CharacterController = m_Player.GetComponent<CharacterController>();

@@ -26,4 +26,20 @@ public class CameraController : MonoBehaviour
         transform.position += m_CharacterController.m_Velocity * Time.deltaTime;
         transform.position = new Vector3(transform.position.x, transform.position.y, m_CharacterController.transform.position.z);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 8)
+        {
+            gameObject.GetComponent<Camera>().cullingMask &= ~(1 << LayerMask.NameToLayer("InvisibleToCamera"));
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 8)
+        {
+            gameObject.GetComponent<Camera>().cullingMask |= 1 << LayerMask.NameToLayer("InvisibleToCamera");
+        }
+    }
 }

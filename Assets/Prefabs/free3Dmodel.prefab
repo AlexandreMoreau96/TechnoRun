@@ -11204,6 +11204,7 @@ GameObject:
   - component: {fileID: 4541518178314425324}
   - component: {fileID: 8767712161863882027}
   - component: {fileID: 4837029152791277527}
+  - component: {fileID: 3086134131141668332}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -11289,7 +11290,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CharacterController: {fileID: 3071140377878533847}
-  m_UI: {fileID: 4799422771335980146, guid: bcd9c7ecbdd276e4e8b251909a86248c, type: 3}
+--- !u!65 &3086134131141668332
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8466698475522860505}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8615873866641971738
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,18 +5,20 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    private float m_Speed = 3f;
+    public float m_Speed = 10f;
     private Animator m_AnimationController;
     private float m_Y;
     private float m_JumpHeight = 1.5f;
     private float m_JumpSpeed = 2f;
     private bool m_CanJump = true;
+    public Vector3 m_Velocity;
+    private float m_AnimationSpeedRatio = 6;
 
     // Start is called before the first frame update
     void Start()
     {
         m_AnimationController = GetComponent<Animator>();
-        m_AnimationController.SetFloat("speed", m_Speed / 7);
+        m_AnimationController.SetFloat("speed", m_Speed / m_AnimationSpeedRatio);
         m_Y = transform.position.y;
     }
 
@@ -25,8 +27,8 @@ public class CharacterController : MonoBehaviour
     {
         Vector3 verMovement = transform.right;
         Vector3 horMovement = -transform.forward * Input.GetAxisRaw("Horizontal");
-        Vector3 vel = (horMovement + verMovement).normalized * m_Speed;
-        transform.position += vel * Time.deltaTime;
+        m_Velocity = (horMovement + verMovement).normalized * m_Speed;
+        transform.position += m_Velocity * Time.deltaTime;
 
         if (m_CanJump && Input.GetKeyDown(KeyCode.Space))
         {
@@ -61,6 +63,6 @@ public class CharacterController : MonoBehaviour
     {
         m_Speed *= 1.5f;
         m_Speed = m_Speed >= 35.0f ? 35.0f : m_Speed;
-        m_AnimationController.SetFloat("speed", m_Speed / 7);
+        m_AnimationController.SetFloat("speed", m_Speed / m_AnimationSpeedRatio);
     }
 }

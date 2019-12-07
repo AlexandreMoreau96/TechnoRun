@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelBuider : MonoBehaviour
 {
     [SerializeField]
-    private LevelPart m_LevelPart;
+    private LevelPart[] m_LevelPart;
     [SerializeField]
     private GameObject m_PlayerPrefab;
     private Transform m_Player;
@@ -19,9 +19,9 @@ public class LevelBuider : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        m_Player = Instantiate(m_PlayerPrefab.transform, m_LevelPart.LevelTransform.transform.position, Quaternion.identity);
+        m_Player = Instantiate(m_PlayerPrefab.transform, m_LevelPart[0].LevelTransform.transform.position, Quaternion.identity);
         m_CharacterController = m_Player.GetComponent<CharacterController>();
-        m_LastLevelPartSpawn = Instantiate(m_LevelPart.LevelTransform, m_LevelPart.LevelTransform.transform.position, Quaternion.identity).GetComponent<LevelPart>();
+        m_LastLevelPartSpawn = Instantiate(m_LevelPart[0].LevelTransform, m_LevelPart[0].LevelTransform.transform.position, Quaternion.identity).GetComponent<LevelPart>();
         SpawnLevelPart();
         SpawnLevelPart();
         SpawnLevelPart();
@@ -51,7 +51,9 @@ public class LevelBuider : MonoBehaviour
 
     public void SpawnLevelPart()
     {
-        m_LastLevelPartSpawn = Instantiate(m_LevelPart, m_LastLevelPartSpawn.EndPosition.position, Quaternion.identity).GetComponent<LevelPart>();
+        int rnd = UnityEngine.Random.Range(0, m_LevelPart.Length);   
+
+        m_LastLevelPartSpawn = Instantiate(m_LevelPart[rnd], m_LastLevelPartSpawn.EndPosition.position, Quaternion.identity).GetComponent<LevelPart>();
         m_NextPartSpawn = true;
         m_PartCount += 1;
     }

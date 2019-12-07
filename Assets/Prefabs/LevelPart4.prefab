@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelTransform: {fileID: 6013461648800021609}
-  EndPosition: {fileID: 5775013666522029806}
+  EndPoint: {fileID: 5775013666522029806}
 --- !u!1 &1701302457381808749
 GameObject:
   m_ObjectHideFlags: 0

@@ -158,6 +158,13 @@ MonoBehaviour:
   - {fileID: 6878545095888196073, guid: 0660e2b7b5ebc2141986c9ad30c2783d, type: 3}
   - {fileID: 2821904700148509154, guid: 3f51a04614c5ca44ebd5a5aa0be0536a, type: 3}
   - {fileID: 5845453600002466754, guid: 07a8c76cccf46ce438a914547de25617, type: 3}
+  - {fileID: 5845453600002466754, guid: 0aa58dcd9d503594c85dd788e8b1e892, type: 3}
+  - {fileID: 5845453600002466754, guid: f4368d2c57f1f48418dc1a8a402177be, type: 3}
+  - {fileID: 5845453600002466754, guid: fbaa0aea7fdeabc4eb72b49f26c51eba, type: 3}
+  - {fileID: 5845453600002466754, guid: 9f29b71486639b143bf7b7d1d60f2a7c, type: 3}
+  - {fileID: 5845453600002466754, guid: d6934d97866b2f54296ec40f634ab1c6, type: 3}
+  - {fileID: 5845453600002466754, guid: 8e5de553343b0544d8ef805f6824afe3, type: 3}
+  - {fileID: 5845453600002466754, guid: b2207430ea4699f46a57febf50c434c0, type: 3}
   m_PlayerPrefab: {fileID: 9075260422519119349, guid: bb6ad0b0473e7684f869dbafd3e61a84,
     type: 3}
 --- !u!4 &111065724
@@ -376,7 +383,7 @@ PrefabInstance:
     - target: {fileID: 674375774458135059, guid: e143f9228d9483e47a3e08b430b728d9,
         type: 3}
       propertyPath: m_LevelPart.Array.size
-      value: 6
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2482302384817800576, guid: e143f9228d9483e47a3e08b430b728d9,
         type: 3}

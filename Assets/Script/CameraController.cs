@@ -17,7 +17,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(m_CharacterController.gameObject.transform.position.x <= transform.position.x)
+        if(m_CharacterController.gameObject.transform.position.x - 2 <= transform.position.x ||
+            m_CharacterController.m_Dead)
         {
             Time.timeScale = 0.0f;
             m_UI.gameObject.SetActive(true);
@@ -25,21 +26,5 @@ public class CameraController : MonoBehaviour
 
         transform.position += m_CharacterController.m_Velocity * Time.deltaTime;
         transform.position = new Vector3(transform.position.x, transform.position.y, m_CharacterController.transform.position.z);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == 8)
-        {
-            gameObject.GetComponent<Camera>().cullingMask &= ~(1 << LayerMask.NameToLayer("InvisibleToCamera"));
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.layer == 8)
-        {
-            gameObject.GetComponent<Camera>().cullingMask |= 1 << LayerMask.NameToLayer("InvisibleToCamera");
-        }
     }
 }

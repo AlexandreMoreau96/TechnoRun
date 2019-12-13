@@ -1079,7 +1079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7570559552978076453
 Transform:
   m_ObjectHideFlags: 0
@@ -6113,7 +6113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5933091318734635314
 Transform:
   m_ObjectHideFlags: 0
@@ -11204,6 +11204,7 @@ GameObject:
   - component: {fileID: 4541518178314425324}
   - component: {fileID: 8767712161863882027}
   - component: {fileID: 4837029152791277527}
+  - component: {fileID: 6385671926045514073}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -11218,13 +11219,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8466698475522860505}
-  m_LocalRotation: {x: 0.09229593, y: 0.7010574, z: -0.09229593, w: 0.7010574}
-  m_LocalPosition: {x: -19.04, y: 9.41, z: 0.25}
+  m_LocalRotation: {x: 0.12278779, y: 0.6963643, z: -0.12278779, w: 0.6963643}
+  m_LocalPosition: {x: -17.12, y: 16.6, z: 0.25}
   m_LocalScale: {x: 3.333333, y: 3.333333, z: 3.333333}
   m_Children: []
   m_Father: {fileID: 5452333702795177958}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 15, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 90, z: 0}
 --- !u!20 &4541518178314425324
 Camera:
   m_ObjectHideFlags: 0
@@ -11289,7 +11290,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CharacterController: {fileID: 3071140377878533847}
-  m_UI: {fileID: 4799422771335980146, guid: bcd9c7ecbdd276e4e8b251909a86248c, type: 3}
+--- !u!45 &6385671926045514073
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8466698475522860505}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: e00a8231e31ffd446a93e5e91d8a8c7d, type: 2}
 --- !u!1 &8615873866641971738
 GameObject:
   m_ObjectHideFlags: 0
@@ -11365,6 +11374,7 @@ GameObject:
   - component: {fileID: 3071140377878533847}
   - component: {fileID: 3889423644909030918}
   - component: {fileID: 3014830565569406772}
+  - component: {fileID: 7817328578448844482}
   m_Layer: 0
   m_Name: free3Dmodel
   m_TagString: Untagged
@@ -11422,6 +11432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Speed: 3
   m_Velocity: {x: 0, y: 0, z: 0}
+  m_Dead: 0
 --- !u!54 &3889423644909030918
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11452,6 +11463,19 @@ CapsuleCollider:
   m_Height: 5.8175855
   m_Direction: 1
   m_Center: {x: -0.14890511, y: 3.0154526, z: 0}
+--- !u!65 &7817328578448844482
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075260422519119349}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.95559746, y: 0.29270008, z: 0.41849384}
+  m_Center: {x: 0.022201288, y: 0.035097722, z: 0.004216817}
 --- !u!1 &9167473291171002953
 GameObject:
   m_ObjectHideFlags: 0

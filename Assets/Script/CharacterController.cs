@@ -13,6 +13,8 @@ public class CharacterController : MonoBehaviour
     private bool m_CanJump = true;
     public Vector3 m_Velocity;
     private float m_AnimationSpeedRatio = 6;
+    private bool m_Falling = false;
+    public bool m_Dead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,7 @@ public class CharacterController : MonoBehaviour
     {
         Vector3 verMovement = transform.right;
         Vector3 horMovement = -transform.forward * Input.GetAxisRaw("Horizontal");
+
         m_Velocity = (horMovement + verMovement).normalized * m_Speed;
         transform.position += m_Velocity * Time.deltaTime;
 
@@ -35,6 +38,12 @@ public class CharacterController : MonoBehaviour
             m_CanJump = false;
             m_AnimationController.SetTrigger("JumpPressed");
             StartCoroutine(Jump());
+        }
+
+        if (m_Falling)
+        {
+            m_CanJump = false;
+            StartCoroutine(Fall());
         }
     }
 
@@ -59,10 +68,32 @@ public class CharacterController : MonoBehaviour
         m_CanJump = true;
     }
 
+    private IEnumerator Fall()
+    {
+        m_AnimationController.speed = 0;
+
+        while (transform.position.y >= m_Y - 10)
+        {
+            transform.position += new Vector3(0, -2 * m_JumpSpeed, 0) * Time.deltaTime;
+            yield return null;
+        }
+
+        m_AnimationController.speed = 1;
+        m_Dead = true;
+    }
+
     internal void IncreaseSpeed()
     {
         m_Speed *= 1.5f;
         m_Speed = m_Speed >= 35.0f ? 35.0f : m_Speed;
         m_AnimationController.SetFloat("speed", m_Speed / m_AnimationSpeedRatio);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Void")
+        {
+            m_Falling = true;
+        }
     }
 }

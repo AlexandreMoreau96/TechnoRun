@@ -17,7 +17,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(m_CharacterController.gameObject.transform.position.x <= transform.position.x)
+        if(m_CharacterController.gameObject.transform.position.x - 2.6f <= transform.position.x ||
+            m_CharacterController.m_Dead)
         {
             Time.timeScale = 0.0f;
             m_UI.gameObject.SetActive(true);

@@ -5,23 +5,24 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private CharacterController m_CharacterController;
-    private GameObject m_UI;
+    private GameManager m_GM;
+    private bool m_gameOver = false;
 
     private void Start()
     {
-        m_UI = GameObject.Find("UI");
-        m_UI.SetActive(false);
+        m_GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         transform.parent = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(m_CharacterController.gameObject.transform.position.x - 2.6f <= transform.position.x ||
-            m_CharacterController.m_Dead)
+        if((m_CharacterController.gameObject.transform.position.x - 2.6f <= transform.position.x ||
+            m_CharacterController.m_Dead) && !m_gameOver)
         {
             Time.timeScale = 0.0f;
-            m_UI.gameObject.SetActive(true);
+            m_GM.GameOver();
+            m_gameOver = true;
         }
 
         transform.position += m_CharacterController.m_Velocity * Time.deltaTime;

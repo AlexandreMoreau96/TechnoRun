@@ -11375,6 +11375,7 @@ GameObject:
   - component: {fileID: 3889423644909030918}
   - component: {fileID: 3014830565569406772}
   - component: {fileID: 7817328578448844482}
+  - component: {fileID: 4582689492498536404}
   m_Layer: 0
   m_Name: free3Dmodel
   m_TagString: Untagged
@@ -11476,6 +11477,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.95559746, y: 0.29270008, z: 0.41849384}
   m_Center: {x: 0.022201288, y: 0.035097722, z: 0.004216817}
+--- !u!114 &4582689492498536404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9075260422519119349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b183cddd4b866e943b12c595297df18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9167473291171002953
 GameObject:
   m_ObjectHideFlags: 0

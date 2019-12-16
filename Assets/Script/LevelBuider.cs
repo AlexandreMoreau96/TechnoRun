@@ -5,10 +5,8 @@ using UnityEngine;
 
 public class LevelBuider : MonoBehaviour
 {
-    [SerializeField]
-    private LevelPart[] m_LevelPart;
-    [SerializeField]
-    private GameObject m_PlayerPrefab;
+    [SerializeField] private LevelPart[] m_LevelPart;
+    [SerializeField] private GameObject m_PlayerPrefab;
     private LevelPart[] m_levelPartsInstantiate;
     private Transform m_Player;
     private CharacterController m_CharacterController;

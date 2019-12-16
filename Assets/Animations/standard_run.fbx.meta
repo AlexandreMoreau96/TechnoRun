@@ -60,7 +60,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.32950193
-        functionName: CreateParticle
+        functionName: CreateParticles
         data: 
         objectReferenceParameter: {fileID: 9075260422519119349, guid: bb6ad0b0473e7684f869dbafd3e61a84,
           type: 3}
@@ -68,7 +68,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.8464164
-        functionName: NewEvent
+        functionName: CreateParticles
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

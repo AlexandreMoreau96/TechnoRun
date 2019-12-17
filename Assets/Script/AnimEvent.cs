@@ -18,6 +18,6 @@ public class AnimEvent : MonoBehaviour
 
     public void CreateParticles()
     {
-        Debug.Log("touche le sol");
+        //Debug.Log("touche le sol");
     }
 }

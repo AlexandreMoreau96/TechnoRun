@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    [SerializeField] private AudioSource m_audioSource;
+    [SerializeField] private AudioClip m_jumpClip;
+
     public float m_Speed = 10f;
     private Animator m_AnimationController;
     private float m_Y;
@@ -49,6 +52,8 @@ public class CharacterController : MonoBehaviour
 
     private IEnumerator Jump()
     {
+        m_audioSource.clip = m_jumpClip;
+        m_audioSource.Play();
         while(transform.position.y < m_JumpHeight)
         {
             transform.position += new Vector3(0, m_JumpSpeed, 0) * Time.deltaTime;

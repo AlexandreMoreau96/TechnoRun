@@ -7,11 +7,11 @@ public class LevelBuider : MonoBehaviour
 {
     [SerializeField] private LevelPart[] m_LevelPart;
     [SerializeField] private GameObject m_PlayerPrefab;
+    [SerializeField] private GameManager m_GM;
     private LevelPart[] m_levelPartsInstantiate;
     private Transform m_Player;
     private CharacterController m_CharacterController;
     private LevelPart m_LastLevelPartSpawn;
-    private int count = 0;
     private int m_PartCount = 0;
     private bool m_NextPartSpawn = true;
 
@@ -80,6 +80,12 @@ public class LevelBuider : MonoBehaviour
             IncreaseSpeed();
             m_NextPartSpawn = false;
         }
+
+        if(m_PartCount == 15)
+        {
+            m_GM.ChangeClip();
+        }
+
     }
 
     private void IncreaseSpeed()
@@ -101,6 +107,7 @@ public class LevelBuider : MonoBehaviour
 
         m_NextPartSpawn = true;
         m_PartCount += 1;
+        m_GM.SetScore(m_PartCount);
     }
 
     private void DeletePart()

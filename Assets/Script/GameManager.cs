@@ -26,12 +26,6 @@ public class GameManager : MonoBehaviour
         m_audioSource.Play();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        m_audioSource.volume = m_musicSlider.value;
-        m_AudioMixer.SetFloat("FoleyVolume", m_soundEffectsSlider.value);
-    }
 
     public void GameOver()
     {
@@ -70,5 +64,15 @@ public class GameManager : MonoBehaviour
     public void SetVolumeSFX(float value)
     {
         m_AudioMixer.SetFloat("SFXVolume", value);
+    }
+
+    public void SetVolumeMusic(float value)
+    {
+        m_audioSource.volume = value;
+    }
+
+    public void SetFoleyVolume(float value)
+    {
+        m_AudioMixer.SetFloat("FoleyVolume", value);
     }
 }

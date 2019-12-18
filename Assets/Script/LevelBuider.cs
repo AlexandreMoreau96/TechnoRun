@@ -20,12 +20,15 @@ public class LevelBuider : MonoBehaviour
     private int m_nbPart = 5;
     private float m_DistanceToEndPointBeforeSpawningPart = 30.0f;
 
+    public int m_seed = 12;
+
     void Awake()
     {
         m_Player = Instantiate(m_PlayerPrefab.transform, m_LevelPart[0].LevelTransform.transform.position, Quaternion.identity);
         m_CharacterController = m_Player.GetComponent<CharacterController>();
 
         m_levelPartsInstantiate = new LevelPart[m_LevelPart.Length * m_nbPart];
+        UnityEngine.Random.InitState(m_seed);
         InstantiateLevelPart();
 
         SpawnFirstParts();

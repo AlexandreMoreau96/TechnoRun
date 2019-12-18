@@ -241,6 +241,7 @@ MonoBehaviour:
   m_PlayerPrefab: {fileID: 9075260422519119349, guid: bb6ad0b0473e7684f869dbafd3e61a84,
     type: 3}
   m_GM: {fileID: 1448338334}
+  m_seed: 20
 --- !u!4 &111065724
 Transform:
   m_ObjectHideFlags: 0
@@ -2243,6 +2244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LevelPart.Array.size
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 674375774458135059, guid: e143f9228d9483e47a3e08b430b728d9,
+        type: 3}
+      propertyPath: m_seed
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2482302384817800576, guid: e143f9228d9483e47a3e08b430b728d9,
         type: 3}

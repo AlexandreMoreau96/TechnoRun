@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class AnimEvent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private AudioSource m_audioSource;
+    [SerializeField] private AudioClip m_soundWalkingClip;
 
     public void CreateParticles()
     {
-        //Debug.Log("touche le sol");
+        m_audioSource.clip = m_soundWalkingClip;
+        m_audioSource.Play();
     }
 }

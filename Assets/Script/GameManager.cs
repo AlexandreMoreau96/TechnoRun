@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,13 +14,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject m_UI;
     [SerializeField] private AudioSource m_audioSource;
     [SerializeField] private Slider m_musicSlider;
+    [SerializeField] private AudioMixer m_AudioMixer;
+    [SerializeField] private Slider m_soundEffectsSlider;
+    [SerializeField] private Slider m_SFXSlider;
     private int m_score = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         m_UI.SetActive(false);
-        m_musicSlider.value = 0.75f;
         m_audioSource.Play();
     }
 
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         m_audioSource.volume = m_musicSlider.value;
+        m_AudioMixer.SetFloat("FoleyVolume", m_soundEffectsSlider.value);
     }
 
     public void GameOver()
@@ -61,5 +65,10 @@ public class GameManager : MonoBehaviour
         m_audioSource.Stop();
         m_audioSource.clip = m_advancedInLevelMusic;
         m_audioSource.Play();
+    }
+
+    public void SetVolumeSFX(float value)
+    {
+        m_AudioMixer.SetFloat("SFXVolume", value);
     }
 }

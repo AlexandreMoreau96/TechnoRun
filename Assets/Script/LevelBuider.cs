@@ -84,7 +84,7 @@ public class LevelBuider : MonoBehaviour
             m_NextPartSpawn = false;
         }
 
-        if(m_PartCount == 15)
+        if(m_PartCount == 7)
         {
             m_GM.ChangeClip();
         }

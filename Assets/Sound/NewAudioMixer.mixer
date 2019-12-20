@@ -1,5 +1,38 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-8937081929030170855
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 7b03a7592cb4a704cb5b6d325b730e26
+  m_EffectName: Attenuation
+  m_MixLevel: e294b3039329edb40a36b6f04e07872f
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &-3370506053253522826
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ClipOne
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 601ca6e727d617947ba2c96c7ffea219
+  m_Children: []
+  m_Volume: 81f246e0968850a49b6e2f9894b7a28f
+  m_Pitch: c93935b6a324d4b4ea9244b6407e9d59
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -8937081929030170855}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &-2961334910815458773
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -82,6 +115,10 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 81f246e0968850a49b6e2f9894b7a28f
+    name: Clip1Volume
+  - guid: 7ea54735849d735469e989330f8584cc
+    name: Clip2Volume
   - guid: 9f82a19dd24665e4a9b5a070ef6b89e1
     name: FoleyVolume
   - guid: bfd8df6d0fdfb924f85099d584f3af03
@@ -91,6 +128,8 @@ AudioMixerController:
     - 2b6fd0a3b493255429e71b02bb1fe615
     - c78732a9accca9841ab271812882ecb2
     - 0f780790bdc99bf489a25f4041df9fd3
+    - 601ca6e727d617947ba2c96c7ffea219
+    - dfa568c9938e983438d7b308aee43c66
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -106,6 +145,8 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: -1440679016311826218}
   - {fileID: -586632515917437021}
+  - {fileID: 5961074953737673792}
+  - {fileID: -3370506053253522826}
   m_Volume: 071a5a5fbb7fb134d9837ade6e09946e
   m_Pitch: 10e45a507036f0b489c9a921de231a59
   m_Send: 00000000000000000000000000000000
@@ -139,8 +180,10 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 87e91b787c6d93a40a067c3c35b16d10
   m_FloatValues:
+    81f246e0968850a49b6e2f9894b7a28f: 20
     58cefa914ffd6d448bcb3562ef9c54f4: 0.01
     2c55e0d2e25369e468a2b389b9254f23: -39.703533
+    7ea54735849d735469e989330f8584cc: -80
     26370055c1136cb4c8a5b733ad566a80: 10
     30524f550945b2e418c0cade18a3ab68: 1
     30401646a87cc0c4ba5cf67598b9c27c: 2.02
@@ -148,7 +191,40 @@ AudioMixerSnapshotController:
     99ef4f4833afb9a4c8c8547338c41caf: -0.08374829
     fcc11f8bd44ff7740ba6cae9828fb99d: 0.498
     208518cc79255004a9b5d54554e0136a: 0.10800299
-    bfd8df6d0fdfb924f85099d584f3af03: -19.928473
-    9f82a19dd24665e4a9b5a070ef6b89e1: -0.0024418756
+    bfd8df6d0fdfb924f85099d584f3af03: 0.025578512
+    9f82a19dd24665e4a9b5a070ef6b89e1: 0.025578512
     071a5a5fbb7fb134d9837ade6e09946e: -0.08374829
   m_TransitionOverrides: {}
+--- !u!243 &5961074953737673792
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ClipTwo
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: dfa568c9938e983438d7b308aee43c66
+  m_Children: []
+  m_Volume: 7ea54735849d735469e989330f8584cc
+  m_Pitch: 5eb6ded37f2f7174182db017c22fdfcd
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 9209383658406012323}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &9209383658406012323
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 2bcf283356dd0c94cb77c576b87a4d9e
+  m_EffectName: Attenuation
+  m_MixLevel: cbaf5489f93531e4cba697944139cd56
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0

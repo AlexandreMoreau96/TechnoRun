@@ -463,6 +463,36 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2275231668802852862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3602102198599005514}
+  m_Layer: 0
+  m_Name: ParticleSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3602102198599005514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2275231668802852862}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.36, y: 3.87, z: -1.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7944699498896696642}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2488005494670634492
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +814,7 @@ Transform:
   - {fileID: 6768723203122504352}
   - {fileID: 3589264373450214427}
   - {fileID: 3783052675527134378}
+  - {fileID: 3602102198599005514}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -802,6 +833,7 @@ MonoBehaviour:
   LevelTransform: {fileID: 7944699498896696642}
   EndPoint: {fileID: 7859306704386426821}
   isSpawn: 0
+  particlePosition: {fileID: 3602102198599005514}
 --- !u!1 &5218855745248052534
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,10 +15,11 @@ public class LevelBuider : MonoBehaviour
     private int m_PartCount = 0;
     private bool m_NextPartSpawn = true;
 
-    [SerializeField]
+    [SerializeField] ParticleSystem m_Particles;
     private Queue<LevelPart> m_levelPartSpawned = new Queue<LevelPart>();
     private int m_nbPart = 5;
     private float m_DistanceToEndPointBeforeSpawningPart = 30.0f;
+    private ParticlePooling m_ParticlePooling;
 
     public int m_seed = 12;
 
@@ -26,9 +27,13 @@ public class LevelBuider : MonoBehaviour
     {
         m_Player = Instantiate(m_PlayerPrefab.transform, m_LevelPart[0].LevelTransform.transform.position, Quaternion.identity);
         m_CharacterController = m_Player.GetComponent<CharacterController>();
+        m_ParticlePooling = GameObject.Find("ParticlePooling").GetComponent<ParticlePooling>();
 
         m_levelPartsInstantiate = new LevelPart[m_LevelPart.Length * m_nbPart];
-        UnityEngine.Random.InitState(GameObject.Find("seed").GetComponent<Seed>().seed);
+        //UnityEngine.Random.InitState(GameObject.Find("seed").GetComponent<Seed>().seed);
+        GameObject vSeed = GameObject.Find("seed");
+        int seed = vSeed == null ? 20 : vSeed.GetComponent<Seed>().seed;
+        UnityEngine.Random.InitState(seed);
         InstantiateLevelPart();
 
         SpawnFirstParts();
@@ -105,6 +110,9 @@ public class LevelBuider : MonoBehaviour
 
         vLevelPartToSpawn.gameObject.SetActive(true);
         vLevelPartToSpawn.isSpawn = true;
+
+        m_ParticlePooling.CreateParticle(m_Particles, vLevelPartToSpawn.particlePosition);
+
         m_levelPartSpawned.Enqueue(vLevelPartToSpawn);
         m_LastLevelPartSpawn = vLevelPartToSpawn;
 

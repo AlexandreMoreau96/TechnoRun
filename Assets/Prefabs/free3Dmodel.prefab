@@ -297,7 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7104146041865291065}
   m_Layer: 0
-  m_Name: ParticleD
+  m_Name: ParticleR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1930,7 +1930,6 @@ GameObject:
   - component: {fileID: 4582689492498536404}
   - component: {fileID: -5504149492295033643}
   - component: {fileID: -2257300415936962005}
-  - component: {fileID: 6834095390226794486}
   m_Layer: 0
   m_Name: free3Dmodel
   m_TagString: Untagged
@@ -2050,6 +2049,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_audioSource: {fileID: -5504149492295033643}
   m_soundWalkingClip: {fileID: 8300000, guid: 5b465868c9ca85b4896261a3e747eef5, type: 3}
+  m_LeftFoot: {fileID: 8424743796621288649}
+  m_RightFoot: {fileID: 7104146041865291065}
+  m_StepParticles: {fileID: 8886527140860268740, guid: e4b2f7230ce030e499ca7242003a9084,
+    type: 3}
+  m_ParticlePooling: {fileID: 0}
 --- !u!82 &-5504149492295033643
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2244,25 +2248,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6834095390226794486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9075260422519119349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88317cbdbe023ec44aea2ecd9a52ef6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ParticleSystems:
-  - {fileID: 8886527140860268740, guid: e4b2f7230ce030e499ca7242003a9084, type: 3}
-  m_SpawnPoints:
-  - {fileID: 7104146041865291065}
-  - {fileID: 8424743796621288649}
-  m_RandomSpawnPoints: 0
-  m_RandomSpawnParticles: 0
 --- !u!1 &9167473291171002953
 GameObject:
   m_ObjectHideFlags: 0

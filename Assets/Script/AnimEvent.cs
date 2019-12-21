@@ -6,11 +6,14 @@ public class AnimEvent : MonoBehaviour
 {
     [SerializeField] private AudioSource m_audioSource;
     [SerializeField] private AudioClip m_soundWalkingClip;
+    [SerializeField] private Transform m_LeftFoot;
+    [SerializeField] private Transform m_RightFoot;
+    [SerializeField] private ParticleSystem m_StepParticles;
     private ParticlePooling m_ParticlePooling;
 
     private void Awake()
     {
-        m_ParticlePooling = GetComponent<ParticlePooling>();
+        m_ParticlePooling = GameObject.Find("ParticlePooling").GetComponent<ParticlePooling>();
     }
 
     public void PlayStepAudio()
@@ -19,8 +22,16 @@ public class AnimEvent : MonoBehaviour
         m_audioSource.Play();
     }
 
-    public void CreateParticles()
+    public void CreateParticles(int pFoot)
     {
-        m_ParticlePooling.CreateParticle();
+        if (pFoot == 0)
+        {
+            m_ParticlePooling.CreateParticle(m_StepParticles, m_LeftFoot);
+        }
+        else
+        {
+            m_ParticlePooling.CreateParticle(m_StepParticles, m_RightFoot);
+        }
+        
     }
 }

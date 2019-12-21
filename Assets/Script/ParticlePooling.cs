@@ -5,96 +5,85 @@ using UnityEngine;
 public class ParticlePooling : MonoBehaviour
 {
     [SerializeField] private ParticleSystem[] m_ParticleSystems;
-    [SerializeField] private Transform[] m_SpawnPoints;
-    [SerializeField] private bool m_RandomSpawnPoints = false;
-    [SerializeField] private bool m_RandomSpawnParticles = true;
+    private ParticleSystem[][] m_ParticleSystemsInstances;
+    
+    private Queue<ParticleSystem>[] m_SpawnedParticleSystems;
+    [SerializeField] private int[] m_MaxParticles;
+    private int[] m_LastPart;
 
-    private ParticleSystem[] m_ParticleSystemsInstances;
-    private Queue<ParticleSystem> m_SpawnedParticleSystems = new Queue<ParticleSystem>();
-    private int m_nbParticleSystems = 6;
-    private int m_LastParticleToBeSpawned = 0;
-    private int m_LastSpawnPoint = 0;
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        m_ParticleSystemsInstances = new ParticleSystem[m_ParticleSystems.Length * m_nbParticleSystems];
-        InstantiateParticles();
-    }
+        m_ParticleSystemsInstances = new ParticleSystem[m_ParticleSystems.Length][];
+        m_SpawnedParticleSystems = new Queue<ParticleSystem>[m_ParticleSystems.Length];
+        m_LastPart = new int[m_ParticleSystems.Length];
 
-    private void InstantiateParticles()
-    {
-        int k = 0;
         for (int i = 0; i < m_ParticleSystems.Length; i++)
         {
-            for (int j = 0; j < m_nbParticleSystems; j++)
+            m_ParticleSystemsInstances[i] = new ParticleSystem[m_MaxParticles[i]];
+            for (int j = 0; j < m_MaxParticles[i]; j++)
             {
-                m_ParticleSystemsInstances[k] = Instantiate(m_ParticleSystems[i]);
-                m_ParticleSystemsInstances[k].Stop();
-                k++;
+                m_ParticleSystemsInstances[i][j] = Instantiate(m_ParticleSystems[i]);
+                m_ParticleSystemsInstances[i][j].Stop();
             }
         }
+
+        for (int i = 0; i < m_ParticleSystems.Length; i++)
+        {
+            m_SpawnedParticleSystems[i] = new Queue<ParticleSystem>();
+        }
     }
 
-    public void CreateParticle()
+    public void CreateParticle(ParticleSystem pSystem, Transform pPos)
     {
-
-        if (m_SpawnedParticleSystems.Count == m_nbParticleSystems - 1)
+        if(m_ParticleSystemsInstances == null)
         {
-            DeleteParticle();
+            return;
         }
 
-        SpawnParticleSystem();
+        int i = 0;
+        foreach(ParticleSystem sys in m_ParticleSystems)
+        {
+            if(sys.tag == pSystem.tag)
+            {
+                break;
+            }
+            i++;
+        }
+
+
+        if (m_SpawnedParticleSystems[i].Count == m_MaxParticles[i] - 1)
+        {
+            DeleteParticle(i);
+        }
+
+        SpawnParticleSystem(i, pPos);
     }
 
-    private void SpawnParticleSystem()
+    private void SpawnParticleSystem(int pI, Transform pPos)
     {
-        ParticleSystem vParticleSystemToSpawn;
-        int vLastPartToSpawn = m_LastParticleToBeSpawned;
-        int vLastSpawnPoint = m_LastSpawnPoint;
-
-        if(vLastPartToSpawn == m_ParticleSystems.Length - 1)
+        if(m_LastPart[pI] == m_MaxParticles[pI] - 1)
         {
-            vLastPartToSpawn = 0;
+            m_LastPart[pI] = 0;
         }
         else
         {
-            vLastPartToSpawn++;
+            m_LastPart[pI]++;
         }
 
-        if (vLastSpawnPoint == m_SpawnPoints.Length - 1)
-        {
-            vLastSpawnPoint = 0;
-        }
-        else
-        {
-            vLastSpawnPoint++;
-        }
-
-        if (m_RandomSpawnParticles)
-        {
-            vParticleSystemToSpawn = m_ParticleSystemsInstances[Random.Range(0, m_ParticleSystems.Length - 1)];
-        }
-        else
-        {
-            vParticleSystemToSpawn = m_ParticleSystemsInstances[vLastPartToSpawn];
-        }
         
+        ParticleSystem vParticleSystemToSpawn = m_ParticleSystemsInstances[pI][m_LastPart[pI]];
 
-        vParticleSystemToSpawn.transform.position = m_SpawnPoints[vLastSpawnPoint].position;
+        vParticleSystemToSpawn.transform.position = pPos.position;
         vParticleSystemToSpawn.transform.rotation = Quaternion.identity;
 
         vParticleSystemToSpawn.Play();
         
-        m_SpawnedParticleSystems.Enqueue(vParticleSystemToSpawn);
-        m_LastParticleToBeSpawned = vLastPartToSpawn;
-        m_LastSpawnPoint = vLastSpawnPoint;
+        m_SpawnedParticleSystems[pI].Enqueue(vParticleSystemToSpawn);
     }
 
-    private void DeleteParticle()
+    private void DeleteParticle(int pI)
     {
-        ParticleSystem vParticleToDelete = m_SpawnedParticleSystems.Dequeue();
+        ParticleSystem vParticleToDelete = m_SpawnedParticleSystems[pI].Dequeue();
         vParticleToDelete.Stop();
     }
 }

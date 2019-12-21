@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,6 +40,14 @@ public class GameManager : MonoBehaviour
         StartCoroutine(PlayGameOverSounds());
         StartCoroutine(m_easingManager.Test2());
         StartCoroutine(m_easingManager.Test());
+        StartCoroutine(Restart());
+    }
+
+    private IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(5);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 
     private IEnumerator PlayGameOverSounds()

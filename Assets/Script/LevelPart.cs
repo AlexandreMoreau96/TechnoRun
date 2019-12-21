@@ -7,4 +7,5 @@ public class LevelPart : MonoBehaviour
     public Transform LevelTransform;
     public Transform EndPoint;
     public bool isSpawn = false;
+    public Transform particlePosition;
 }

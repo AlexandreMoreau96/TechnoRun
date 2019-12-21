@@ -28,7 +28,9 @@ public class LevelBuider : MonoBehaviour
         m_CharacterController = m_Player.GetComponent<CharacterController>();
 
         m_levelPartsInstantiate = new LevelPart[m_LevelPart.Length * m_nbPart];
-        UnityEngine.Random.InitState(GameObject.Find("seed").GetComponent<Seed>().seed);
+        GameObject vSeed = GameObject.Find("seed");
+        int seed = vSeed == null ? 20 : vSeed.GetComponent<Seed>().seed;
+        UnityEngine.Random.InitState(seed);
         InstantiateLevelPart();
 
         SpawnFirstParts();

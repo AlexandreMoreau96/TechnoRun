@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Slider m_soundEffectsSlider;
     [SerializeField] private Slider m_SFXSlider;
     [SerializeField] private AudioSource m_audioSource2;
+    [SerializeField] private EasingManager m_easingManager;
     private int m_score = 0;
 
     // Start is called before the first frame update
@@ -33,9 +34,11 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        m_scoreText.text = "Score : " + m_score.ToString();
+        m_scoreText.text = "Score : " + (m_score - 5).ToString();
         m_UI.SetActive(true);
         StartCoroutine(PlayGameOverSounds());
+        StartCoroutine(m_easingManager.Test2());
+        StartCoroutine(m_easingManager.Test());
     }
 
     private IEnumerator PlayGameOverSounds()

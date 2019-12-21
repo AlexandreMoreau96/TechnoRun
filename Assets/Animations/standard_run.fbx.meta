@@ -67,10 +67,27 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.3303474
+        functionName: PlayStepAudio
+        data: 
+        objectReferenceParameter: {fileID: 9075260422519119349, guid: bb6ad0b0473e7684f869dbafd3e61a84,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.8464164
         functionName: CreateParticles
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 9075260422519119349, guid: bb6ad0b0473e7684f869dbafd3e61a84,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8469388
+        functionName: PlayStepAudio
+        data: 
+        objectReferenceParameter: {fileID: 9075260422519119349, guid: bb6ad0b0473e7684f869dbafd3e61a84,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

@@ -37,7 +37,7 @@ public class ParticlePooling : MonoBehaviour
         }
     }
 
-    public void CreateParticles()
+    public void CreateParticle()
     {
 
         if (m_SpawnedParticleSystems.Count == m_nbParticleSystems - 1)

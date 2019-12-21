@@ -6,6 +6,12 @@ public class AnimEvent : MonoBehaviour
 {
     [SerializeField] private AudioSource m_audioSource;
     [SerializeField] private AudioClip m_soundWalkingClip;
+    private ParticlePooling m_ParticlePooling;
+
+    private void Awake()
+    {
+        m_ParticlePooling = GetComponent<ParticlePooling>();
+    }
 
     public void PlayStepAudio()
     {
@@ -15,6 +21,6 @@ public class AnimEvent : MonoBehaviour
 
     public void CreateParticles()
     {
-
+        m_ParticlePooling.CreateParticle();
     }
 }

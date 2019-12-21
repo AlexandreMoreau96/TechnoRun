@@ -17,12 +17,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioMixer m_AudioMixer;
     [SerializeField] private Slider m_soundEffectsSlider;
     [SerializeField] private Slider m_SFXSlider;
+    [SerializeField] private AudioSource m_audioSource2;
     private int m_score = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         m_UI.SetActive(false);
+        m_audioSource.volume = m_musicSlider.value;
+        m_audioSource2.volume = m_musicSlider.value;
+        m_AudioMixer.SetFloat("Clip2Volume", -80f);
         m_audioSource.Play();
     }
 
@@ -36,10 +40,14 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PlayGameOverSounds()
     {
+        m_AudioMixer.SetFloat("Clip1Volume", 20f);
+
+        m_audioSource2.Stop();
         m_audioSource.Stop();
         m_audioSource.clip = m_gameOverMusicClip;
         m_audioSource.loop = false;
         m_audioSource.Play();
+
         while (m_audioSource.isPlaying)
         {
             yield return null;
@@ -55,10 +63,10 @@ public class GameManager : MonoBehaviour
 
     public void ChangeClip()
     {
-        //faire faded ici
-        m_audioSource.Stop();
-        m_audioSource.clip = m_advancedInLevelMusic;
-        m_audioSource.Play();
+        m_AudioMixer.SetFloat("Clip2Volume", -20f);
+
+        StartCoroutine(FadedClip2());
+        StartCoroutine(FadedClip());
     }
 
     public void SetVolumeSFX(float value)
@@ -69,10 +77,37 @@ public class GameManager : MonoBehaviour
     public void SetVolumeMusic(float value)
     {
         m_audioSource.volume = value;
+        m_audioSource2.volume = value;
     }
 
     public void SetFoleyVolume(float value)
     {
         m_AudioMixer.SetFloat("FoleyVolume", value);
+    }
+
+    public IEnumerator FadedClip2()
+    {
+        m_AudioMixer.GetFloat("Clip2Volume", out float value2);
+        while (value2 <= 20f)
+        {
+            m_AudioMixer.GetFloat("Clip2Volume", out value2);
+            m_AudioMixer.SetFloat("Clip2Volume", value2 + 0.001f);
+            yield return null;
+        }
+        m_AudioMixer.SetFloat("Clip2Volume", 20f);
+
+    }
+
+    public IEnumerator FadedClip()
+    {
+        m_AudioMixer.GetFloat("Clip1Volume", out float value);
+        while ( value >= -10f)
+        {
+            m_AudioMixer.GetFloat("Clip1Volume", out value);
+            m_AudioMixer.SetFloat("Clip1Volume", value - 0.0005f);
+            yield return null;
+        }
+        m_AudioMixer.SetFloat("Clip1Volume", -80f);
+
     }
 }

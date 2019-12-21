@@ -20,9 +20,11 @@ public class CameraController : MonoBehaviour
         if((m_CharacterController.gameObject.transform.position.x - 2.6f <= transform.position.x ||
             m_CharacterController.m_Dead) && !m_gameOver)
         {
-            Time.timeScale = 0.0f;
+            //Time.timeScale = 0.0f;
             m_GM.GameOver();
             m_gameOver = true;
+            m_CharacterController.m_Velocity = Vector3.zero;
+            m_CharacterController.gameObject.SetActive(false);
         }
 
         transform.position += m_CharacterController.m_Velocity * Time.deltaTime;

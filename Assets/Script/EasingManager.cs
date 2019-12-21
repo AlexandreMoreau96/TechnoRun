@@ -37,7 +37,7 @@ public class EasingManager : MonoBehaviour
     }
 
     /*
-     * C'est fonction sont copier tel quel du repo Github de " https://gist.github.com/cjddmut/d789b9eb78216998e95c" 
+     * Ces fonctions sont copiées telle quelle du repo Github de " https://gist.github.com/cjddmut/d789b9eb78216998e95c" 
      */
     public float EaseOutBounce(float start, float end, float value)
     {

@@ -241,6 +241,8 @@ MonoBehaviour:
   m_PlayerPrefab: {fileID: 9075260422519119349, guid: bb6ad0b0473e7684f869dbafd3e61a84,
     type: 3}
   m_GM: {fileID: 1448338334}
+  m_Particles: {fileID: 606863729694689518, guid: b9321db6b5e3f2246a01a0a9fbeac87d,
+    type: 3}
   m_seed: 20
 --- !u!4 &111065724
 Transform:
@@ -859,6 +861,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &560277714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 560277715}
+  - component: {fileID: 560277716}
+  m_Layer: 0
+  m_Name: ParticlePooling
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &560277715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560277714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 116.57477, y: 384.28802, z: 985.672}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &560277716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560277714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88317cbdbe023ec44aea2ecd9a52ef6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ParticleSystems:
+  - {fileID: 8886527140860268740, guid: e4b2f7230ce030e499ca7242003a9084, type: 3}
+  - {fileID: 606863729694689518, guid: b9321db6b5e3f2246a01a0a9fbeac87d, type: 3}
+  m_MaxParticles: 0600000006000000
 --- !u!1 &566474263
 GameObject:
   m_ObjectHideFlags: 0
